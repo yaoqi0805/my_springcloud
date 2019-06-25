@@ -1,0 +1,33 @@
+server:
+  port: 8765
+#  servlet:
+#    context-path: /api
+#
+spring:
+  application:
+    name: service-ht
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yaoqi0805/SpringcloudConfig.git #配置git仓库地址
+          search-paths: service_ht #配置仓库路径
+          username: yaoqi0808
+          password: ol2677449495cai
+      label: master #仓库的分支
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

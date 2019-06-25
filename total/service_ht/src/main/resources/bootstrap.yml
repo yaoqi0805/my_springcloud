@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: service-ht
+  cloud:
+    config:
+      name: application #配置文件名
+      label: master #仓库的分支
+      discovery:
+        enabled: true
+        service-id: config
+      profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

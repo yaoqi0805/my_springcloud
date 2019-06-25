@@ -1,0 +1,24 @@
+server:
+  port: 7032
+
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yaoqi0805/SpringcloudConfig.git #配置git仓库地址
+          search-paths: service_ht #配置仓库路径
+          username: yaoqi0808
+          password: ol2677449495cai
+      label: master #仓库的分支
+      #name: application,application-dev #配置文件名称（多个配置文件以英文逗号隔开）
+
+eureka:
+  #  instance:
+  #    hostname: ${spring.cloud.client.ipAddress}
+  #    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

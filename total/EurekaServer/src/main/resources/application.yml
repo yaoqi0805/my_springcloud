@@ -1,0 +1,22 @@
+server:
+  port: 8761
+eureka:
+  server:
+    enable-self-preservation: false
+#    在开启自我保护的情况下，注册中心在丢失客户端时，会进入自动保护模式，注册
+#    中心并不会将该服务从注册中心删除掉。这里我设置为 false，即关闭自我保护。
+#    根据我的经验，如果设置为 true，在负载均衡条件下，一个服务挂掉后，注册中心
+#    并没有删掉该服务，会导致客户端请求的时候可能会请求到该服务
+#    导致系统无法
+#    访问，所以我推荐将这个属性设置为 false。
+  instance:
+    hostname: localhost  #设置当前实例的主机名称
+    prefer-ip-address: true  # 是否以 IP 注册到注册中心，Eureka 默认是以 hostname 来注册的
+  client:
+    register-with-eureka: false #指示此实例是否应将其信息注册到eureka服务器以供其他人发现
+    fetch-registry: false #检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   #注册中心默认地址
+spring:
+  application:
+    name: eureka_server
