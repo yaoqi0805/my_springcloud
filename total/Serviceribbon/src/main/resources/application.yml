@@ -11,11 +11,13 @@ spring:
 #    port: 5672
 #    username: guest
 
-#  zipkin:
-#    base-uri: http://localhost:9411 #指定 zipkinServer 的地址。
-#  sleuth:
-#    sampler:
-#      percentage: 1.0 #指定采样请求的百分比（默认为0.1，即10%）
+  zipkin:
+    base-url: http://localhost:9411 #指定 zipkinServer 的地址。
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0 #指定采样请求的百分比（默认为0.1，即10%）
 
 
 eureka:
@@ -26,3 +28,31 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+
+mysql:
+  datasource:
+    test1:
+      url: jdbc:mysql://localhost:3306/test01?useUnicode=true&characterEnco
+      username: root
+      password: 1qaz2wsx
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
+    test2:
+      url: jdbc:mysql://localhost:3306/test02?useUnicode=true&characterEnco
+      username: root
+      password: 1qaz2wsx
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1

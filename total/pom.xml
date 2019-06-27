@@ -14,7 +14,7 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>EurekaServer</module>
+<!--        <module>EurekaServer</module>-->
         <!--<module>service_hi</module>-->
         <module>Serviceribbon</module>
     </modules>
